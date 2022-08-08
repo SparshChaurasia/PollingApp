@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Vote{% endblock title %}
+{% load static %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock stylesheets %}
+{% block content %}
+<div class="container">
+    <h1 class="title">Voting Page</h1>
+    <form action="#" method="post" class="form">
+        {% csrf_token %}
+        <div class="form__field">
+                <h3 class="form__field--title">Head Boy</h3>
+                <input type="radio" name="headboy-candidate" id="headboy-candidate1" value="candidate1">
+                <label for="headboy-candidate">Candidate1</label>
+                <input type="radio" name="headboy-candidate" id="headboy-candidate2" value="candidate2">
+                <label for="headboy-candidate2">Candidate2</label>
+        </div>
+        <div class="form__field">
+                <h3 class="form__field--title">Head Girl</h3>
+                <input type="radio" name="headgirl-candidate" id="headgirl-candidate1" value="candidate1">
+                <label for="headgirl-candidate">Candidate1</label>
+                <input type="radio" name="headgirl-candidate" id="headgirl-candidate2" value="candidate2">
+                <label for="headgirl-candidate2">Candidate2</label>
+        </div>
+        <div class="form__field">
+                <h3 class="form__field--title">Sports Captain</h3>
+                <input type="radio" name="sports-captain-candidate" id="sports-captain-candidate1" value="candidate1">
+                <label for="sports-captain-candidate">Candidate1</label>
+                <input type="radio" name="sports-captain-candidate" id="sports-captain-candidate2" value="candidate2">
+                <label for="sports-captain-candidate2">Candidate2</label>
+        </div>
+        <div class="form__field">
+                <h3 class="form__field--title">Activity Captain</h3>
+                <input type="radio" name="activity-captain-candidate" id="activity-captain-candidate1" value="candidate1">
+                <label for="activity-captain-candidate1">Candidate1</label>
+                <input type="radio" name="activity-captain-candidate" id="activity-captain-candidate2" value="candidate2">
+                <label for="activity-captain-candidate2">Candidate2</label>
+        </div>
+        <button class="btn">Vote</button>
+    </form>
+</div>
+{% endblock content %}
