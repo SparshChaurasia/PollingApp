@@ -1,0 +1,23 @@
+:root {
+    --primary-color: green;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Reusable Classes */
+.btn {
+    margin-top: 0.5rem;
+    background: none;
+    border: 3px solid var(--primary-color);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: white;
+    background-color: var(--primary-color);
+}

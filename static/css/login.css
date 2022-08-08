@@ -1,0 +1,31 @@
+.form {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__title {
+    margin-bottom: 2rem;
+    border-bottom: 5px solid var(--primary-color);
+}
+
+.form__field {
+    margin-bottom: 1.5rem;
+}
+
+.form__input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1rem;
+    padding-left: 5px;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

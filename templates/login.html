@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}
+{% load static %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock stylesheets %}
+{% block content %}
+<div class="container">
+    <form action="#" method="post" class="form">
+        {% csrf_token %}
+        <h3 class="form__title">Login</h3>
+        <div class="form__field">
+            <label for="username"><i class="fa-solid fa-user icon"></i></label>
+            <input type="text" name="username" id="username" placeholder="username" class="form__input">
+        </div>
+        <div class="form__field">
+            <label for="password"><i class="fa-solid fa-lock icon"></i></label>
+            <input type="password" name="password" id="password" placeholder="password" class="form__input">
+        </div>
+        <button class="btn">Submit</button>
+    </form>
+    <div class="content-wrapper">
+        <h1 class="title">Aditya Birla Public School</h1>
+        <h3 class="subtitle">Voting system</h3>
+    </div>
+</div>
+{% endblock content %}
