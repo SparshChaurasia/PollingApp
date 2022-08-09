@@ -1,5 +1,6 @@
 :root {
     --primary-color: green;
+    --primary-color-light: rgb(200, 255, 200);
 }
 
 /* Base CSS */
@@ -7,6 +8,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+body {
+    overflow-y: hidden;
 }
 
 a {
@@ -26,4 +31,22 @@ a {
 .btn:hover {
     color: white;
     background-color: var(--primary-color);
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color-light);
+}
+
+.navbar__links-wrapper {
+    display: flex;
+    align-items: baseline;
+}
+
+.nabar__item {
+    margin-left: 2rem;
 }

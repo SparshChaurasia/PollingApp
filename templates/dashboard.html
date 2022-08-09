@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base/main.html' %}
 {% block title %}Dashboard{% endblock title %}
 {% load static %}
 {% block stylesheets %}
@@ -6,7 +6,6 @@
 {% endblock stylesheets %}
 {% block content %}
 <div class="container">
-    <h1>Welcome {{ user }}!</h1>
     <a href="/vote" class="btn">Start Voting</a>
 </div>
 {% endblock content %}
