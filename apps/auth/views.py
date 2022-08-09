@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from .decorators import unauthenticated_user
 
+@unauthenticated_user
 def index(request):
     return render(request, "login.html")
-
 
 def login_user(request):
     if request.method != "POST":
