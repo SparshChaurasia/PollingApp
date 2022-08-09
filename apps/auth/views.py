@@ -18,9 +18,9 @@ def login_user(request):
         return HttpResponse("not a user lol")
 
     login(request, user)
-    return redirect("/vote")
+    return redirect("/")
 
 def logout_user(request):
     logout(request)
    
-    return redirect("/")
+    return redirect("/login")

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% load static %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock stylesheets %}
+{% block content %}
+<div class="container">
+    <h1>Welcome {{ user }}!</h1>
+    <a href="/vote" class="btn">Start Voting</a>
+</div>
+{% endblock content %}
