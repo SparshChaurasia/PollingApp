@@ -9,35 +9,94 @@
     <h1 class="title">Voting Page</h1>
     <form action="#" method="post" class="form">
         {% csrf_token %}
-        <div class="form__field">
+        <div class="form__student-details">
+			<div class="form__field">
+            <label for="class">Select Class</label>
+            <select name="class" id="class">
+                <option value="9A">9A</option>
+                <option value="9B">9B</option>
+                <option value="10A">10A</option>
+                <option value="10B">10B</option>
+                <option value="10C">10C</option>
+                <option value="11A">11A</option>
+                <option value="11B">11B</option>
+                <option value="12A">12A</option>
+                <option value="12B">12B</option>
+            </select>
+        	</div>
+        	<div class="form__field">
+        	    <label for="roll">Roll number</label>
+        	    <input type="number" name="roll" id="roll">
+        	</div>
+        	<div class="form__field">
+        		<label for="id">Id</label>
+        	    <input type="text" name="id" id="id">
+        	</div>
+        	<div class="form__field">
+        		<label for="name">Name</label>
+        	    <input type="text" name="name" id="name">
+        	</div>
+		</div>
+
+        <div class="form__choices">
+            {% comment %} <div class="form__field">
                 <h3 class="form__field--title">Head Boy</h3>
                 <input type="radio" name="headboy-candidate" id="headboy-candidate1" value="candidate1">
                 <label for="headboy-candidate">Candidate1</label>
                 <input type="radio" name="headboy-candidate" id="headboy-candidate2" value="candidate2">
                 <label for="headboy-candidate2">Candidate2</label>
-        </div>
-        <div class="form__field">
+            </div>
+            <div class="form__field">
                 <h3 class="form__field--title">Head Girl</h3>
                 <input type="radio" name="headgirl-candidate" id="headgirl-candidate1" value="candidate1">
                 <label for="headgirl-candidate">Candidate1</label>
                 <input type="radio" name="headgirl-candidate" id="headgirl-candidate2" value="candidate2">
                 <label for="headgirl-candidate2">Candidate2</label>
-        </div>
-        <div class="form__field">
+            </div>
+            <div class="form__field">
                 <h3 class="form__field--title">Sports Captain</h3>
                 <input type="radio" name="sports-captain-candidate" id="sports-captain-candidate1" value="candidate1">
                 <label for="sports-captain-candidate">Candidate1</label>
                 <input type="radio" name="sports-captain-candidate" id="sports-captain-candidate2" value="candidate2">
                 <label for="sports-captain-candidate2">Candidate2</label>
-        </div>
-        <div class="form__field">
+            </div>
+            <div class="form__field">
                 <h3 class="form__field--title">Activity Captain</h3>
                 <input type="radio" name="activity-captain-candidate" id="activity-captain-candidate1" value="candidate1">
                 <label for="activity-captain-candidate1">Candidate1</label>
                 <input type="radio" name="activity-captain-candidate" id="activity-captain-candidate2" value="candidate2">
                 <label for="activity-captain-candidate2">Candidate2</label>
-        </div>
-        <button class="btn">Vote</button>
+            </div> {% endcomment %}
+            <div class="form__field">
+                <h3 class="form__field--title">Head Boy</h3>
+                {% for candidate in head_boy %}
+                    <label for="head-boy{{ forloop.counter0 }}">{{ candidate.CandidateName }}</label>
+                    <input type="radio" name="head-boy" id="head-boy{{ forloop.counter0 }}" value="{{ candidate.CandidateName }}">
+                {% endfor %}
+            </div>
+            <div class="form__field">
+                <h3 class="form__field--title">Head Girl</h3>
+                {% for candidate in head_girl %}
+                    <label for="head-girl{{ forloop.counter0 }}">{{ candidate.CandidateName }}</label>
+                    <input type="radio" name="head-girl" id="head-girl{{ forloop.counter0 }}" value="{{ candidate.CandidateName }}">
+                {% endfor %}
+            </div>
+            <div class="form__field">
+                <h3 class="form__field--title">Sports Captian</h3>
+                {% for candidate in sports_captain %}
+                    <label for="sports-captain{{ forloop.counter0 }}">{{ candidate.CandidateName }}</label>
+                    <input type="radio" name="sports-captain" id="sports-captain{{ forloop.counter0 }}" value="{{ candidate.CandidateName }}">
+                {% endfor %}
+            </div>
+            <div class="form__field">
+                <h3 class="form__field--title">Activity Captain</h3>
+                {% for candidate in activity_captain %}
+                    <label for="activity-captain{{ forloop.counter0 }}">{{ candidate.CandidateName }}</label>
+                    <input type="radio" name="activity-captain" id="activity-captain{{ forloop.counter0 }}" value="{{ candidate.CandidateName }}">
+                {% endfor %}
+            </div>
+		</div>
+    	<button class="btn">Vote</button>
     </form>
 </div>
 {% endblock content %}
