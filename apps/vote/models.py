@@ -19,22 +19,35 @@ class Posts(models.TextChoices):
     activity_captain = "activity_captain"
 
 class Student(models.Model):
-    StudentName = models.CharField(max_length=100)
-    StudentId = models.CharField(max_length=100)
+    StudentName = models.CharField(max_length=255)
+    StudentId = models.CharField(max_length=7, primary_key=True)
     StudentClass = models.CharField(max_length=3, choices=Classes.choices)
     Roll = models.IntegerField()
     Voted = models.BooleanField(default=False)
+
+    def save(self, *args, **kwargs):
+        self.StudentName = self.StudentName.lower()
+        self.Voted = True
+        return super(Student, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.StudentName
     
 
 class Candidate(models.Model):
-    CandidateName = models.CharField(max_length=100)
+    CandidateName = models.CharField(max_length=255)
     CandidateId = models.AutoField(primary_key=True)
     CandidateClass = models.CharField(max_length=3, choices=Classes.choices)
-    Post = models.TextField(choices=Posts.choices)
-    Votes = models.IntegerField()
+    Post = models.CharField(max_length=16, choices=Posts.choices)
+    Votes = models.IntegerField(default=0)
+
+    def save(self, *args, **kwargs):
+        self.CandidateName = self.CandidateName.lower()
+        return super(Candidate, self).save(*args, **kwargs)
+
+    def vote(self):
+        self.Votes += 1
+        return
 
     def __str__(self):
         return self.CandidateName
