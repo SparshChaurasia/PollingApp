@@ -6,6 +6,45 @@
 {% endblock stylesheets %}
 {% block content %}
 <div class="container">
-    <a href="/vote" class="btn">Start Voting</a>
+    <div class="general">
+        <a href="#" class="btn">See Results</a>
+        <a href="/vote" class="btn">Start Voting</a>
+    </div>
+    <span class="vertical-line"></span>
+    <div class="status">
+            {% if class %}
+            <table class="student-table">
+                <tr>
+                    <th>Roll No.</th>
+                    <th>Name</th>
+                    <th>Voted</th>
+                </tr>
+                {% for student, s_info in class.items %}
+                    <tr>
+                        <td>{{ s_info.roll }}</td>
+                        <td>{{ s_info.name }}</td>
+                        <td>{{ s_info.status }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <form action="/" method="post">
+                {% csrf_token %}
+                <label for="class">Select Class</label>
+                <select name="class" id="class">
+                    <option value="9A">9A</option>
+                    <option value="9B">9B</option>
+                    <option value="10A">10A</option>
+                    <option value="10B">10B</option>
+                    <option value="10C">10C</option>
+                    <option value="11A">11A</option>
+                    <option value="11B">11B</option>
+                    <option value="12A">12A</option>
+                    <option value="12B">12B</option>
+                </select>
+                <button class="btn">See Status</button>
+            </form>
+        {% endif %}
+    </div>
 </div>
 {% endblock content %}

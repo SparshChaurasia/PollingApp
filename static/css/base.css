@@ -1,6 +1,7 @@
 :root {
     --primary-color: green;
     --primary-color-light: rgb(200, 255, 200);
+    --header-height: 5rem;
 }
 
 /* Base CSS */
@@ -12,6 +13,7 @@
 
 body {
     overflow-y: hidden;
+    /* overflow-x: hidden; */
 }
 
 a {
@@ -19,7 +21,32 @@ a {
     color: inherit;
 }
 
+table,
+th,
+td {
+    border: 2px solid var(--primary-color);
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: .25rem .25rem;
+    text-align: center;
+}
+
+th {
+    color: white;
+    background-color: var(--primary-color);
+    font-weight: bold;
+}
+
 /* Reusable Classes */
+.container {
+    height: calc(100vh - var(--header-height));
+    width: 100%;
+    padding: 1rem 3rem;
+}
+
 .btn {
     margin-top: 0.5rem;
     background: none;
@@ -33,12 +60,20 @@ a {
     background-color: var(--primary-color);
 }
 
+.vertical-line {
+    border-left: .25rem solid var(--primary-color);
+    height: calc(95vh - var(--header-height));
+    position: absolute;
+    margin-bottom: 1rem;
+}
+
 /* Navbar Styling */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 2rem;
+    padding: 0 2rem;
+    height: var(--header-height);
     background-color: var(--primary-color-light);
 }
 
