@@ -1,0 +1,29 @@
+{% extends 'base/main.html' %}
+{% block title %}Results{% endblock title %}
+{% load static %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/results.css' %}">
+{% endblock stylesheets %}
+{% block content %}
+<div class="container">
+    {% for post, info in data.items %}
+        <table>
+            <caption>{{ info.name }}</caption>
+            <tr>
+                <th>Name</th>
+                <th>Votes</th>
+                <th>Winner</th>
+            </tr>
+            {% for candidate in info.candidates %}
+                <tr>
+                    <td>{{ candidate.CandidateName }}</td>
+                    <td>{{ candidate.Votes }}</td>
+                    {% if forloop.first %}
+                        <td rowspan="{{ info.candidates.count }}">{{ info.winner }}</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+</div>
+{% endblock content %}
