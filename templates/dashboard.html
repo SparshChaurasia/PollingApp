@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 {% endblock stylesheets %}
 {% block content %}
+{% for message in messages %}
+    {% include 'includes/popup.html' with message=message %}
+{% endfor %}
 <div class="container">
     <div class="general">
         <a href="/results" class="btn">See Results</a>

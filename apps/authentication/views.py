@@ -1,6 +1,9 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import HttpResponse, redirect, render
+
 from .decorators import unauthenticated_user
+
 
 @unauthenticated_user
 def index(request):
@@ -15,7 +18,8 @@ def login_user(request):
 
     user = authenticate(request, username=username, password=password)
     if not user:
-        return HttpResponse("not a user lol")
+        messages.error(request, "User not found")
+        return redirect("/login")
 
     login(request, user)
     return redirect("/")

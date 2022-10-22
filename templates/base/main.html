@@ -11,7 +11,9 @@
     <!-- Specific CSS for the page goes here -->
     {% block stylesheets %}{% endblock stylesheets %}
     <!-- Specific JavaScript for the page goes here -->
-    {% block javascript %}{% endblock javascript %}
+    {% block javascript %}
+    <script src="{% static 'js/popup.js' %}" defer></script>
+    {% endblock javascript %}
 </head>
 <body>
     <header>

@@ -6,6 +6,9 @@
 {% endblock stylesheets %}
 {% block content %}
 <div class="container">
+    {% for message in messages %}
+        {% include 'includes/popup.html' with message=message %}
+    {% endfor %}
     <form action="{% url 'login' %}" method="post" class="form">
         {% csrf_token %}
         <h3 class="form__title">Login</h3>
