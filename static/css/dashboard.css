@@ -11,3 +11,10 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.vertical-line {
+    border-left: .25rem solid var(--primary-color);
+    height: calc(95vh - var(--header-height));
+    position: absolute;
+    margin-bottom: 1rem;
+}

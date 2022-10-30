@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran&family=Raleway&display=swap');
+
 :root {
-    --primary-color: green;
-    --primary-color-light: rgb(200, 255, 200);
+    --primary-color: #395144;
+    --primary-color-light: #4E6C50;
+    --secondary-color: #AA8B56;
+    --secondary-color-light: #F0EBCE;
+    --primary-font: 'Raleway', sans-serif;
+    --secondary-font: 'Catamaran', sans-serif;
     --header-height: 5rem;
 }
 
@@ -13,6 +19,7 @@
 
 body {
     overflow-y: hidden;
+    font-family: var(--primary-font);
     /* overflow-x: hidden; */
 }
 
@@ -48,10 +55,11 @@ th {
 }
 
 .btn {
-    margin-top: 0.5rem;
     background: none;
-    border: 3px solid var(--primary-color);
+    font-size: 1rem;
+    font-weight: bold;
     padding: 5px;
+    border: 3px solid var(--primary-color);
     cursor: pointer;
 }
 
@@ -60,12 +68,6 @@ th {
     background-color: var(--primary-color);
 }
 
-.vertical-line {
-    border-left: .25rem solid var(--primary-color);
-    height: calc(95vh - var(--header-height));
-    position: absolute;
-    margin-bottom: 1rem;
-}
 
 /* Navbar Styling */
 .navbar {
