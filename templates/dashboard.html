@@ -10,8 +10,14 @@
 {% endfor %}
 <div class="container">
     <div class="general">
-        <a href="/results" class="btn">See Results</a>
-        <a href="/vote" class="btn">Start Voting</a>
+        <a href="/vote" class="btn-panel btn-vote">
+            <img src="{% static 'images/vote2.jpg' %}" class="btn-panel-img btn-vote-img" alt="voting image">
+            <p class="btn-panel-text btn-vote-text">Start Voting <i class="fa-solid fa-arrow-right"></i></p>
+        </a>
+        <a href="/results" class="btn-panel btn-results">
+            <img src="{% static 'images/vote3.jpg' %}" class="btn-panel-img btn-results-img" alt="voting image">
+            <p class="btn-panel-text btn-results-text">See Results <i class="fa-solid fa-arrow-right"></i></p>
+        </a>
     </div>
     <span class="vertical-line"></span>
     <div class="status">

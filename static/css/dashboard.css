@@ -12,6 +12,36 @@
     justify-content: center;
 }
 
+.btn-panel {
+    padding: 0;
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.btn-panel:hover {
+    opacity: 0.5;
+    color: black;
+}
+
+.btn-panel-img {
+    max-width: 34rem;
+    max-height: 21rem;
+    width: auto;
+    height: auto;
+}
+
+.btn-panel-text {
+    font-size: 2rem;
+    position: absolute;
+    top: 75%;
+    left: 2.5rem;
+}
+
+.btn-results {
+    margin-top: 3rem;
+}
+
 .vertical-line {
     border-left: .25rem solid var(--primary-color);
     height: calc(95vh - var(--header-height));
