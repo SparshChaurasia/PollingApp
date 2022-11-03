@@ -7,7 +7,8 @@
     --secondary-color-light: #F0EBCE;
     --primary-font: 'Raleway', sans-serif;
     --secondary-font: 'Catamaran', sans-serif;
-    --header-height: 5rem;
+    --header-height: 6.5rem;
+    --page-indent: 8rem;
 }
 
 /* Base CSS */
@@ -18,9 +19,9 @@
 }
 
 body {
-    overflow-y: hidden;
+    overflow-x: hidden;
+    /* overflow-y: hidden;  */
     font-family: var(--primary-font);
-    /* overflow-x: hidden; */
 }
 
 a {
@@ -51,7 +52,8 @@ th {
 .container {
     height: calc(100vh - var(--header-height));
     width: 100%;
-    padding: 1rem 3rem;
+    /* padding: 1rem 3rem; */
+    margin: 0 var(--page-indent);
 }
 
 .btn {
