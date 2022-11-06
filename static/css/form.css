@@ -1,8 +1,13 @@
 .container {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+}
+
+.image {
+    max-width: 63rem;
+    max-height: 42rem;
+    width: auto;
+    height: auto;
 }
 
 .title {
@@ -10,9 +15,20 @@
     margin-bottom: 2rem;
 }
 
+/* Form styling */
 .form {
     display: flex;
     flex-direction: column;
+    width: clamp(320px, 30%, 430px);
+    margin: 0 auto;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step-active {
+    display: block;
 }
 
 .form__field {

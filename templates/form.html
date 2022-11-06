@@ -1,56 +1,70 @@
-{% extends 'base/base.html' %}
+{% extends 'base/main.html' %}
 {% block title %}Vote{% endblock title %}
 {% load static %}
 {% block stylesheets %}
 <link rel="stylesheet" href="{% static 'css/form.css' %}">
 {% endblock stylesheets %}
+{% block javascript %}
+<script src="{% static 'js/form.js' %}" defer></script>
+{% endblock javascript %}
 {% block content %}
 <div class="container">
-    <h1 class="title">Voting Page</h1>
-    <form action="{% url 'vote' %}" method="post" class="form">
+    <div class="image-wrapper">
+        <img src="{% static 'images/vote1.jpg' %}" alt="voting image" class="image">
+    </div>
+    <div class="form__wrapper">
+        <h1 class="title">Voting Page</h1>
+        <form action="{% url 'vote' %}" method="post" class="form">
         {% csrf_token %}
-        <div class="form__student-details">
+        <div class="form__details form-step form-step-active">
 			<div class="form__field">
-            <label for="class">Select Class</label>
-            <select name="class" id="class">
-                <option value="9A">9A</option>
-                <option value="9B">9B</option>
-                <option value="10A">10A</option>
-                <option value="10B">10B</option>
-                <option value="10C">10C</option>
-                <option value="11A">11A</option>
-                <option value="11B">11B</option>
-                <option value="12A">12A</option>
-                <option value="12B">12B</option>
-            </select>
+                <label for="class">Select Class</label>
+                <select name="class" id="class">
+                    <option value="9A">9A</option>
+                    <option value="9B">9B</option>
+                    <option value="10A">10A</option>
+                    <option value="10B">10B</option>
+                    <option value="10C">10C</option>
+                    <option value="11A">11A</option>
+                    <option value="11B">11B</option>
+                    <option value="12A">12A</option>
+                    <option value="12B">12B</option>
+                </select>
         	</div>
         	<div class="form__field">
         	    <label for="roll">Roll number</label>
-        	    <input type="number" name="roll" id="roll">
+        	    <input type="number" name="roll" id="roll" required>
         	</div>
         	<div class="form__field">
         		<label for="id">Id</label>
-        	    <input type="text" name="id" id="id">
+        	    <input type="text" name="id" id="id" required>
         	</div>
         	<div class="form__field">
         		<label for="name">Name</label>
-        	    <input type="text" name="name" id="name">
+        	    <input type="text" name="name" id="name" required>
         	</div>
+            <div class="btn-wrapper">
+                <button class="btn btn-next" onclick="nextFormStep()">Next</button>
+            </div>
 		</div>
-        <div class="form__choices">
+        <div class="form__choices form-step">
             {% for post in posts %}
                 <div class="form__field">
                     <h3 class="form__field--title">{{ post.1 }}</h3>
                     {% with post.0 as candidates %}
                     {% for candidate in candidates %}
                         <label for="{{ candidate }}{{ forloop.counter0 }}">{{ candidate.CandidateName }}</label>
-                        <input type="radio" name="{{ post.2 }}" id="{{ candidate }}{{ forloop.counter0 }}" value="{{ candidate.CandidateId }}"><br>
+                        <input type="radio" name="{{ post.2 }}" id="{{ candidate }}{{ forloop.counter0 }}" value="{{ candidate.CandidateId }}" required><br>
                     {% endfor %}
                     {% endwith %}
                 </div>
             {% endfor %}
+            <div class="btn-wrapper">
+                <button class="btn btn-prev" onclick="prevFormStep()">Previous</button>
+                <button class="btn">Vote</button>
+            </div>
         </div>
-    	<button class="btn">Vote</button>
-    </form>
+        </form>
+    </div>
 </div>
 {% endblock content %}
